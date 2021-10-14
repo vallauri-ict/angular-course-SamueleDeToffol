@@ -4,4 +4,6 @@
     'male' : student.gender == 'M',
     'underlined' : student.hobby == 'Paddle'}" (click)="onStudentClick()">
     {{student.name}} - {{student.hobby}}
+    <span *ngIf="student.isPro">(Professionista)</span>
+    <span *ngIf="!student.isPro">(Dilettante)</span>
 </p>
