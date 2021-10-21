@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +8,21 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = '5 INF B 2021/22';
 
-  studentList = [
+  hobbies = ['Karate', 'Paddle', 'Volley', 'Tennis', 'Soccer'];
+
+  @ViewChild('txtName') txtName!: ElementRef
+
+  constructor() {
+    for (let i = 0; i < 4; i++) {
+      let num = Math.floor(Math.random() * this.studentRepository.length);
+      let tempStudent = this.studentRepository[num];
+      this.studentList.push(tempStudent);
+      this.studentRepository.splice(num, 1);
+    }
+  }
+
+
+  studentRepository = [
     { name: 'Ettore Esposito', hobby: 'Karate', gender: 'M', isPro: false },
     { name: 'Giada Valinotto', hobby: 'Paddle', gender: 'F', isPro: false },
     { name: 'Luca Dellavalle', hobby: 'Poligono', gender: 'M', isPro: false },
@@ -22,4 +36,17 @@ export class AppComponent {
     { name: 'Marta Baudracco', hobby: 'Paddle', gender: 'F', isPro: false },
     { name: 'Paolo Giordano', hobby: 'Palestra', gender: 'M', isPro: false },
   ]
+
+  studentList: any[] = [];
+
+  studentName: string = "";
+  studentGender: string = "F";
+  studentHobby: string = "";
+
+  onAddStudent() {
+    let newStudent = { name: this.studentName, hobby: this.studentHobby, gender: this.studentGender, isPro: false };
+    this.studentRepository.push(newStudent);
+    this.studentName = "";
+    this.txtName.nativeElement.focus();
+  }
 }

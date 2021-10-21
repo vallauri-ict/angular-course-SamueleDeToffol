@@ -11,12 +11,38 @@ h1, h2, h3, h4, h5, h6, .student {
     margin: 8px 0;
 }
 
-.student{
+.student {
     min-width: 350px;
     text-align: left;
 }
 
-.student span{
+button {
+    background-color: #1976d2;
+    padding: 10px;
+    margin: 16px auto;
+    border-radius: 4px;
+    color: whitesmoke;
+}
+
+button:disabled {
+    background-color: whitesmoke;
+    color: gray;
+}
+
+.genderSelection>div {
+    display: inline;
+}
+
+.genderSelection {
+    margin: 10px auto;
+}
+
+.hobbieSelection {
+    width: 110px;
+    margin: 10px auto;
+}
+
+.student span {
     min-width: 40px;
     display: inline-block;
 }
