@@ -8,8 +8,8 @@ import { Component, Input, OnInit } from '@angular/core';
 export class StudentComponent implements OnInit {
 
   @Input() student: any = {};
-  constructor() {
 
+  constructor() {
   }
 
   private randomStudentPro() {

@@ -43,6 +43,8 @@ export class AppComponent {
   studentGender: string = "F";
   studentHobby: string = "";
 
+  
+
   onAddStudent() {
     let newStudent = { name: this.studentName, hobby: this.studentHobby, gender: this.studentGender, isPro: false };
     this.studentRepository.push(newStudent);
